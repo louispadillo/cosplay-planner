@@ -1,0 +1,249 @@
+body {
+    width: 100%;
+    height: 990px;
+    font-size: 10px;
+}
+
+@font-face {
+    font-family: 'Thunder';
+    src: url('/fonts/Thunder-VF.ttf') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+.top-border {
+    padding: 5px 10px;
+    width: 100%;
+    background-color: #3c4345;
+    border-bottom: 2px solid black;
+    color: rgb(170, 170, 170);
+    position: fixed;
+    z-index: 1000;
+}
+
+.top-border h1 {
+    font-size: 0.8rem; /* 0.8 * 10px = 8px */
+    font-family: 'Lexend';
+}
+
+.top-border h2 {
+    font-size: 0.8rem; /* 0.8 * 10px = 8px */
+    font-family: 'Lexend';
+    position: fixed;
+    top: 5px;
+    right: 10px;
+}
+
+.side-panel {
+    z-index: 999;
+    height: 100%;
+    width: 350px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 30px;
+    background-color: #eeeeee;
+    overflow: hidden;
+    border: 1px rgb(192, 192, 192) inset;
+}
+
+.profile-window {
+    display: flex;
+    height: 100px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    /* box shaodw: left-right, up-down, blur, spread */
+}
+
+.profile-window-pic {
+    width: 75px;
+    height: 75px;
+    border-radius: 100%;
+    margin: 10px 0px 10px 10px;
+}
+
+.profile-window-info {
+    margin-top: 15px;
+    margin-left: 10px;
+}
+
+#profile-window-name {
+    font-size: 1.6rem;
+    font-family: 'Lexend';
+    font-weight: bold;
+}
+
+#profile-window-description {
+    font-size: 0.8rem;
+    font-family: 'Lexend';
+    color: gray;
+}
+
+.chat-window { 
+    overflow-y: auto;
+    height: 80vh;
+}
+
+.chat-box {
+    display: flex;
+    padding: 10px 10px 10px;
+    position: relative;
+}
+
+.chat-box::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute;
+    bottom: 0; /* Position the line at the bottom */
+    left: 23%; /* Start the line from 10% from the left */
+    width: 70%; /* Set the width to 80% of the container */
+    height: 1px; /* Set the thickness of the border line */
+    background-color: #8d989b;
+}
+
+.three-dots-menu {
+    left: 88%;
+    top: 30%;
+    width: 15px;
+    position: absolute;
+    filter: brightness(50%);
+}
+
+/* when .chat-box is hovered, the three-dots-menu child also changes */
+.chat-box:hover .three-dots-menu {
+    filter: brightness(100%);
+}
+
+.chat-box:hover {
+    transition: background-color 0.3s ease;
+    background-color: #919191;
+    color: white;
+}
+
+.chat-box:hover::after {
+    transition: background-color 0.3s ease;
+    background-color: transparent;
+}
+
+.chat-box:active {
+    transition: 0.1s;
+    background-color: rgb(54, 53, 52);
+}
+
+.chat-box:hover  #chat-window-message {
+    color: rgb(235, 233, 229);
+}
+
+.chat-window-pic {
+    width: 60px;
+    height: 60px;
+    border-radius: 100%;
+}
+
+.chat-info {
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+#chat-window-name, #chat-window-message {
+    font-family: Lexend;
+}
+
+#chat-window-message {
+    color: gray
+}
+
+.unclickable {
+    pointer-events: none;
+}
+
+.global-container {
+    display: flex;
+}
+
+.bottom-menu {
+    position: relative;
+    display: flex;
+    flex-grow: 1;
+    width: 350px;
+    justify-content: center;
+    bottom: 1%; /*pushes them to the bottom. only works if position is fixed*/
+    border-top: 1px solid #8d989b;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px -3px 6px, rgba(0, 0, 0, 0.23) 0px -3px 6px;
+}
+
+.bottom-menu img {
+    width: 50px;
+    margin: 10px 25px;
+    border-radius: 100%;
+}
+
+.bottom-menu img:hover {
+    transition: 0.3s ease;
+    filter: brightness(75%);
+}
+
+.bottom-menu img:active {
+    filter: brightness(0%);
+}
+
+/* ================= MAIN PANEL ================= */
+
+.main-panel {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 350px; /*to offset from the side-panel */
+}
+
+.event-tabs-panel {
+    position: fixed;
+    padding-top: 30px;
+    padding-left: 350px;
+    width: 100%;
+    height: 70px;
+    border-bottom: 1px solid rgb(192, 192, 192);
+    background-color: #eeeeee;
+    z-index: 10;
+}
+
+.main-header-background-container h2 {
+    text-align: center;
+    color: white;
+    margin-top: 140px;
+    font-family: 'Thunder';
+    line-height: 150px;
+    font-size: 100px;
+    max-width: 1000px;
+    position: absolute;
+    left: 50%; /* Horizontally center the text */
+    transform: translate(-50%, -50%); /* Offset the text to truly center it */
+    z-index: 2; /*need this*/
+}
+
+.main-header-background-container {
+    z-index: 1;
+    padding-top: 70px;
+    position: relative; /* Make the container relative for pseudo-elements */
+    width: 100%; /* Ensure full width */
+    height: 350px; /* max height of img */
+    display: inline-block; /* Make it inline so the container wraps the image */
+    overflow: hidden;
+}
+
+.main-header-background-container::after {
+    content: ""; /* Empty content for the pseudo-element */
+    position: absolute;
+    bottom: 0; /* Align at the bottom of the container */
+    left: 0;
+    width: 100%; /* Full width of the container */
+    height: 50%; /* Adjust the height of the fading effect */
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgb(255, 255, 255) 100%); /* Fades to white */
+    pointer-events: none; /* Prevent it from blocking mouse interactions */
+}
+
+.main-header-background-container img {
+    filter: brightness(80%) blur(2px);
+
+
+    object-position: 0px -150px; /* to move the cropped image [left-right, up-down] */
+}
