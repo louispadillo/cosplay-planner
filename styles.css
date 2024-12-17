@@ -124,7 +124,7 @@ body {
 }
 
 .chat-box:active {
-    transition: 0.1s;
+    transition: 0s;
     background-color: rgb(54, 53, 52);
 }
 
@@ -182,6 +182,7 @@ body {
 }
 
 .bottom-menu img:active {
+    transition: 0s;
     filter: brightness(0%);
 }
 
@@ -243,7 +244,80 @@ body {
 
 .main-header-background-container img {
     filter: brightness(80%) blur(2px);
+    object-position: 0px -150px; /* to move the cropped image [left-right, down-up] */
+}
 
+/* ================= MAIN NAV BAR ================= */
 
-    object-position: 0px -150px; /* to move the cropped image [left-right, up-down] */
+.main-nav-bar {
+    font-family: 'Lexend';
+    font-size: 15px;
+    background-color: white;
+    height: 80px;
+    border-bottom: 1px gray solid;
+    box-shadow: rgba(0, 0, 0, 0.15) 0px 1.95px 2.6px;
+}
+
+.event-poster-pic { /* the pfp on the nav bar */
+    z-index: 1;
+    position: relative;
+    top: -50px;
+    margin-left: 200px;
+    border-radius: 100%;
+    width: 150px;
+}
+
+.main-nav-bar a { /* links in nav bar */
+    color: black;
+    float: left;
+    display: block; /* important for arranging them into a row */
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.left-side input {
+    position: relative;
+    top: 20px;
+    padding: 5px;
+    margin-left: 10px;
+    width: 300px;
+    border-radius: 5px;
+    border: 1px gray solid;
+}
+
+.right-side {
+    position: relative;
+    margin-right: 200px;
+    float: right;
+    top: -22px;
+}
+
+.right-side a:hover {
+    background-color: #E0AB5B;
+    transition: 0.3s ease;
+    color: rgb(255, 255, 255);
+}
+
+.right-side a:active {
+    transition: 0s;
+    background-color: #4F484D;
+}
+
+.add-post-button img {
+    transition: 0.5s ease; /* this lets the animation play out when you're done hovering over the button */
+    position: fixed;
+    bottom: 5%;
+    left: 90%;
+    width: 65px;
+}
+
+.add-post-button img:hover {
+    transition: 0.5s ease;
+    transform: rotate(90deg) scale(1.1);
+}
+
+.add-post-button img:active {
+    transition: 0s;
+    filter: brightness(30%);
 }
